@@ -1,0 +1,38 @@
+<h2>This is Main Page</h2>
+
+<!-- 1. Interpolation from class to html -->
+
+<h5>
+  Project Title is : <span class="text-success"> {{ data.title }} </span>
+</h5>
+<h6>Description : {{ data.description }}</h6>
+<h6>Is Open ? {{ data.isOpen }}</h6>
+<h6>Branches Count : {{ data.branchesCount }}</h6>
+<h6>Tracks Count: {{ data.tracksCount }}</h6>
+
+<!-- 2. Property binding from class to html -->
+
+<!-- <img src="images/logo.png" alt="" /> -->
+
+<!-- <img src="{{ imgSrc }}" alt="" /> -->
+
+<!-- <img [src]="imgSrc" alt="" /> -->
+
+<img [src]="imgSrc" [alt]="imgAlt" />
+
+<input class="form-control my-3" [type]="inputType" [placeholder]="inputPlace" [value]="userName" />
+
+<!-- 3. Event Binding from html to class -->
+
+<button class="btn btn-primary" (click)="displayName()">Display</button>
+<div>
+  <button class="btn btn-primary mt-3" (click)="changeImageSrc()">Change Image</button>
+</div>
+
+<!-- 4. Two-way Binding -->
+
+<!-- <input class="form-control my-3" type="text" [placeholder]="inputPlace" [value]="userName" /> -->
+
+<input class="form-control my-3" type="text" [(ngModel)]="userName" />
+
+<p>{{ userName }}</p>
