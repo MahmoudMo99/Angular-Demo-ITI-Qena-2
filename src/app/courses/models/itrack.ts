@@ -5,4 +5,5 @@ export interface ITrack {
   hours: number;
   coursesCount: number;
   studentsCount: number;
+  price: number;
 }
