@@ -1,0 +1,12 @@
+@if (trackDetails) {
+  <div class="card text-start">
+    <div class="card-body">
+      <h4 class="card-title">{{ trackDetails.name }}</h4>
+      <p class="card-text">{{ trackDetails.description }}</p>
+    </div>
+  </div>
+} @else {
+  <div>Track Not Found.</div>
+}
+
+<button class="btn btn-warning my-5" (click)="back()">Back To Courses</button>

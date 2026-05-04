@@ -1,4 +1,4 @@
-<div class="card text-start" appHoverCard>
+<div class="card text-start" appHoverCard [backColor]="'green'">
   <div class="card-body">
     <!-- <h6>Index: {{ i + 1 }}</h6> -->
     <h6>ID : {{ trackItem.id }}</h6>
@@ -84,6 +84,7 @@
     <div class="d-flex gap-3">
       <button class="btn btn-success" (click)="increase(trackItem)">Add Student</button>
       <button class="btn btn-danger" (click)="delete(trackItem.id)">Delete</button>
+      <button class="btn btn-primary" [routerLink]="['/courses', trackItem.id]">Details</button>
     </div>
   </div>
 </div>
