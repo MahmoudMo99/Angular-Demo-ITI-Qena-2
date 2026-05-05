@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ITrack } from '../models/itrack';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,8 +10,9 @@ import { TracksService } from '../services/tracks-service';
   templateUrl: './courses.html',
   styleUrl: './courses.css',
 })
-export class Courses {
-  searchTerm: string = '';
+export class Courses implements OnInit, OnChanges {
+  @Input() searchTerm: string = '';
+
   myClasses: string = 'text-center p-2';
   currentDate = new Date();
 
@@ -20,13 +21,19 @@ export class Courses {
   tracks: ITrack[] = [];
   filteredTracks: ITrack[] = [];
 
-  // private trackService = inject(TracksService);
+  private trackService = inject(TracksService);
 
   // Dependency Injection
   // Variables Initialization
+  // constructor(private trackService: TracksService) {}
 
-  constructor(private trackService: TracksService) {
+  // load data
+  ngOnInit(): void {
     this.loadTracks();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['searchTerm']) this.loadTracks();
   }
 
   loadTracks() {

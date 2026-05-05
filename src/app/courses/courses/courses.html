@@ -1,4 +1,4 @@
-<div class="my-3">
+<!-- <div class="my-3">
   <label for="name">Track Name:</label>
   <input id="name" type="text" class="form-control my-2" [(ngModel)]="trackName" />
 
@@ -7,9 +7,9 @@
 
 <div class="mb-3 text-center fs-3">
   {{ currentDate | date: 'medium' }}
-</div>
+</div> -->
 
-<div class="my-3">
+<!-- <div class="my-3">
   <input
     class="form-control"
     type="text"
@@ -17,7 +17,7 @@
     [(ngModel)]="searchTerm"
     (input)="filterTracks()"
   />
-</div>
+</div> -->
 
 <div class="row g-3">
   @for (t of filteredTracks; track t.id; let i = $index) {

@@ -3,7 +3,7 @@ import { ITrack } from '../../courses/models/itrack';
 import { CommonModule } from '@angular/common';
 import { TruncatePipe } from '../../core/pipes/truncate-pipe';
 import { HoverCard } from '../../core/directives/hover-card';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-track-card',
