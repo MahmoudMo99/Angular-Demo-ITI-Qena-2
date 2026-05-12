@@ -8,6 +8,9 @@ import { TrackDetails } from './courses/track-details/track-details';
 import { TracksSearch } from './courses/tracks-search/tracks-search';
 import { Login } from './auth/components/login/login';
 import { Register } from './auth/components/register/register';
+import { Posts } from './posts/components/posts/posts';
+import { LoginWithApi } from './auth/components/login-with-api/login-with-api';
+import { authGuard } from './core/guards/auth-guard';
 
 export const routes: Routes = [
   // first wins strategy
@@ -50,6 +53,17 @@ export const routes: Routes = [
   {
     path: 'register',
     component: Register,
+  },
+
+  {
+    path: 'posts',
+    component: Posts,
+    canActivate: [authGuard],
+  },
+
+  {
+    path: 'login-with-api',
+    component: LoginWithApi,
   },
 
   // Wildcard Path

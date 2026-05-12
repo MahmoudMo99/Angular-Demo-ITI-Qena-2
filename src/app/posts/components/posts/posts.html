@@ -1,0 +1,47 @@
+<h4 class="p-3 text-center bg-secondary text-white">Posts From API</h4>
+
+<div>
+  <form [formGroup]="postForm" (ngSubmit)="addPost()">
+    <div>
+      <label for="">Title:</label>
+      <input type="text" class="form-control" formControlName="title" />
+    </div>
+
+    <div class="my-3">
+      <label for="">Body:</label>
+      <textarea class="form-control" formControlName="body"></textarea>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">
+        @if (isSubmitting) {
+          Loading...
+        } @else {
+          Add Post
+        }
+      </button>
+    </div>
+  </form>
+</div>
+
+@if (posts) {
+  <div class="row g-3 mt-3">
+    @for (p of posts.posts; track p.id) {
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <h4>{{ p.title }}</h4>
+          </div>
+          <div class="card-body">
+            <p>{{ p.body }}</p>
+            <p>Likes:{{ p.reactions.likes }}</p>
+            <p>Dislikes:{{ p.reactions.dislikes }}</p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-danger" (click)="deletePost(p.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}
